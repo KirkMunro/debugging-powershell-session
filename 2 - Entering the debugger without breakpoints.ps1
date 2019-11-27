@@ -20,4 +20,4 @@ while ($true)
     Start-Sleep -Seconds 2
 }
 
-# Use F6 (VS Code) or Ctrl+B (PowerShell ISE) to break into a running script at any time
+# Use Ctrl+B (PowerShell ISE) or F6 (VS Code) to break into a running script at any time

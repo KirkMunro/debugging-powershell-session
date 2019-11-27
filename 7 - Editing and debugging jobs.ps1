@@ -4,8 +4,10 @@
 #
 ##################################
 
-# First let me get a few jobs running
-$sandbox = Join-Path -Path $([Environment]::GetFolderPath('Desktop')) -ChildPath 'PowerShell.org/2018/debugging'
+# If you try this yourself, you will need to change this path
+$sandbox = Join-Path -Path $env:USERPROFILE -ChildPath 'OneDrive - Kamtanix, Ltd\Consulting\Presentations\TechMentor Live! 360 Orlando 2019\TMW06 - Become a PowerShell Debugging Ninja!'
+
+# Let's get a few jobs running
 $fileOne = Get-Command -Name "${sandbox}/2 - Entering the debugger without breakpoints.ps1"
 $fileTwo = Get-Command -Name "${sandbox}/3 - Entering the debugger with Wait-Debugger.ps1"
 $jobs = @()

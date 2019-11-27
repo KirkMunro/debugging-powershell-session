@@ -6,8 +6,8 @@
 
 function C {
     $x = 3
-    Write-Host 'About to get the directory name...' -ForegroundColor Cyan
-    [System.IO.Path]::GetDirectoryName($null)
+    Write-Host 'Initializing C...' -ForegroundColor Cyan
+    [System.Math]::Pow(10,'Two')
     Write-Host 'Why doesn''t this message show up?' -ForegroundColor Cyan
 }
 function B {

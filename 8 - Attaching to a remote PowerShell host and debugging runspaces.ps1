@@ -5,16 +5,18 @@
 #####################################################################
 
 # If this isn't Windows PowerShell or PowerShell Core on Windows, it won't work
-if ($PSVersionTable -ge '6.0' -and $PSVersionTable.Platform -eq 'Unix') {
+# because Enter-PSHostProcess is not supported in that version of PowerShell
+if ($PSVersionTable.PSVersion -ge '6.0' -and $PSVersionTable.Platform -eq 'Unix') {
     Write-Warning 'This script uses Enter-PSHostProcess which only works on Windows PowerShell or PowerShell Core on Windows.'
     return
 }
 
-# First let's fire up a few remote processes that have PowerShell hosts
-$sandbox = Join-Path -Path $([Environment]::GetFolderPath('Desktop')) -ChildPath 'PowerShell.org/2018/debugging'
-Start-Process -FilePath 'cmd.exe' -WorkingDirectory $sandbox -ArgumentList @(
-    '-c'
-    "powershell -NoLogo -NoProfile -NoExit -Command . '.\2 - Entering the debugger without breakpoints.ps1'"
+# If you try this yourself, you will need to change this path
+$sandbox = Join-Path -Path $env:USERPROFILE -ChildPath 'OneDrive - Kamtanix, Ltd\Consulting\Presentations\TechMentor Live! 360 Orlando 2019\TMW06 - Become a PowerShell Debugging Ninja!'
+
+# Let's fire up a few remote processes that have PowerShell hosts
+Start-Process -FilePath 'powershell.exe' -WorkingDirectory $sandbox -WindowStyle Minimized -ArgumentList @(
+    "-NoLogo","-NoProfile","-NoExit","-Command",".","'${sandbox}\2 - Entering the debugger without breakpoints.ps1'"
 )
 while (-not ($process = Get-Process -Name powershell -ErrorAction Ignore | Where-Object Id -ne $pid)) {
     Start-Sleep -Milliseconds 250

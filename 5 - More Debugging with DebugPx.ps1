@@ -36,5 +36,7 @@ function Debug-This {
     }
 }
 
-# The -Debug parameter normally leaves a lot to be desired. DebugPx fixes this.
+# The -Debug parameter normally leaves a lot to be desired.
+# DebugPx fixes this.
+# It also works better in PowerShell 7 and later.
 Debug-This -Debug

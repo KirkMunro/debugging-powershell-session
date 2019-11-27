@@ -6,9 +6,9 @@
 
 function Reset-Error {
    $global:Error.Clear()
-   # TODO: Update how this color gets set when Visual Studio Code supports it via script
-   # $psISE.Options.ErrorForegroundColor = '#FFFF0000'
    $global:ErrorView = 'NormalView'
+   # This is ISE-specific
+   $psISE.Options.ErrorForegroundColor = '#FFFF0000'
 }
 Reset-Error
 
@@ -20,11 +20,14 @@ Show-Error
 $psISE.Options.ErrorForegroundColor = [System.Windows.Media.Colors]::Chartreuse
 Show-Error
 
-# Talk to the bear! (or rubber duck or Xamarin monkey or whatever other stuffed
-# animal you keep hidden in your office)
+# TALK TO THE BEAR!
+# (or your puppy or a rubber duck or your Xamarin monkey or some other stuffed
+#  animal that you keep hidden in your office)
 
 # This is a *proven* technique, and it really, really works.
+
 # Seriously.
+
 # There's a reason why people talk to themselves.
 
 # Priming the pump
@@ -37,7 +40,8 @@ function Initialize-Error {
             }
             2 {
                 function C {
-                    [System.IO.Path]::GetDirectoryName($null)
+                    # [System.Math]::Pow accepts two doubles
+                    [System.Math]::Pow(10, 'Two')
                 }
                 function B {
                     C
